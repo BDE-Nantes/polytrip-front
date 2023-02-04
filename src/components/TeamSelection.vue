@@ -34,7 +34,7 @@ const { schoolRankings, updateSchoolLayer, updateLayer } = useDataStore();
             <v-list-item-action start>
               <v-checkbox-btn
                 v-model="school.visible"
-                @click.native="$event.stopPropagation()"
+                @click="$event.stopPropagation()"
                 @update:model-value="(val: boolean) => updateSchoolLayer(school as School, val)"
                 :color="school.color"
               ></v-checkbox-btn>

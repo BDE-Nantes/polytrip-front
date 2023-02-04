@@ -13,3 +13,4 @@ jobs:
         with:
           dry: True
           prettier_version: '2.7.1'
+          prettier_options: --check src

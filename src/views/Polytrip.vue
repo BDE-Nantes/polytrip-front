@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import Map from "../components/Map.vue";
 import TeamSelection from "../components/TeamSelection.vue";
+import TimingComponent from "../components/TimingComponent.vue";
 import { useDataStore } from "../stores/data";
 import { useThemeStore } from "../stores/theme";
 import { ref } from "vue";
@@ -16,6 +17,7 @@ await dataStore.fetchData();
   <v-app :theme="themeStore.theme">
     <v-app-bar>
       <v-app-bar-nav-icon variant="text" @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
+      <TimingComponent></TimingComponent>
       <v-spacer></v-spacer>
       <v-btn
         :icon="themeStore.theme === 'light' ? 'mdi-weather-sunny' : 'mdi-weather-night'"

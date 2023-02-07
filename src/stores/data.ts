@@ -13,8 +13,14 @@ export const useDataStore = defineStore("data", {
       schools: [] as SchoolApi[],
       trips: [] as TripApi[],
       schoolRankings: [] as School[],
+      startDate: null as Date | null,
+      endDate: null as Date | null,
       map: null as Map | null,
     };
+  },
+  getters: {
+    isActive: (state) =>
+      state.startDate != null && state.endDate != null && new Date() > state.startDate && new Date() < state.endDate,
   },
   actions: {
     async fetchData() {
@@ -22,6 +28,9 @@ export const useDataStore = defineStore("data", {
       this.schools = schoolsResp.data;
       const tripsResp = await axios.get(`${import.meta.env.VITE_API_URL}/api/trips/`);
       this.trips = tripsResp.data;
+      const configResp = await axios.get(`${import.meta.env.VITE_API_URL}/api/siteconfiguration/`);
+      this.startDate = new Date(configResp.data["start_date"]);
+      this.endDate = new Date(configResp.data["end_date"]);
       this.updateRankings();
     },
     updateRankings() {

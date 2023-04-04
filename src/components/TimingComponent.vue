@@ -6,6 +6,7 @@ let dateTimeFormat: Intl.DateTimeFormat;
 
 try {
   // dateStyle/timeStyle not available on Safari < 14.1
+  // @ts-ignore
   dateTimeFormat = new Intl.DateTimeFormat("fr", { dateStyle: "full", timeStyle: "short" });
   dateAvailable = true;
 } catch {}

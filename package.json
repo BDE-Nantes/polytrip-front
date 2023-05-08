@@ -16,7 +16,7 @@
     "leaflet": "^1.9.3",
     "pinia": "^2.0.35",
     "vue": "^3.2.45",
-    "vuetify": "^3.2.1"
+    "vuetify": "^3.2.2"
   },
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.1.4",
